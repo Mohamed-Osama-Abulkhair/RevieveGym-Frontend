@@ -5,28 +5,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gym: {
-          50: "#fdf8f6",
-          100: "#f2e8e5",
-          200: "#eaddd7",
-          300: "#e05326", // Energetic Gym Orange / Red Accent
-          400: "#c73e16",
-          500: "#ad2e0c",
-          600: "#1e293b",
-          700: "#0f172a",
-          800: "#0b0f19",
-          900: "#05070c",
+        // Gold & Metallic Identity extracted directly from ReViVe GYM official logo
+        gold: {
+          50: "#fbf8eb",
+          100: "#f5eccd",
+          200: "#edd99b",
+          300: "#e3c263",
+          400: "#d9ab36",
+          500: "#c8941f", // Official Core Metallic Gold
+          600: "#ad7617",
+          700: "#8a5615",
+          800: "#734518",
+          900: "#623a1a",
+          950: "#391e0a",
         },
-        brandSilver: "#BDBEC1",
-        brandSlate: "#1e293b",
+        gym: {
+          accent: "#D4AF37", // Luxury Metallic Gold
+          accentHover: "#E5C048",
+          darkBg: "#0B0D13", // Pitch Carbon Gym Black
+          darkCard: "#131722",
+          darkCardHover: "#1A2030",
+          darkBorder: "#242B3D",
+        },
         brandCanvas: {
-          light: "#f8fafc",
-          dark: "#0b0f19",
+          light: "#F8FAFC",
+          dark: "#0B0D13",
         },
         brandSurface: {
-          light: "#ffffff",
-          dark: "#131926",
-          cardDark: "#182032",
+          light: "#FFFFFF",
+          dark: "#131722",
+          cardDark: "#181E2C",
         },
       },
       fontFamily: {
