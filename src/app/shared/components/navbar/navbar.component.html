@@ -1,0 +1,42 @@
+<header class="sticky top-0 z-40 bg-white/90 dark:bg-brandSurface-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Logo & Brand -->
+    <a routerLink="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-gym-300 text-white flex items-center justify-center font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+        <i class="fa-solid fa-dumbbell"></i>
+      </div>
+      <div>
+        <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">REVIEVE <span class="text-gym-300">GYM</span></span>
+        <span class="block text-[10px] text-slate-500 font-bold -mt-1">ريفايف جيم</span>
+      </div>
+    </a>
+
+    <!-- Nav Links & Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Dark mode toggle -->
+      <button
+        type="button"
+        (click)="themeService.toggleTheme()"
+        class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        [title]="themeService.isDark() ? 'الوضع النهاري' : 'الوضع الليلي'"
+      >
+        <i class="fa-solid" [ngClass]="themeService.isDark() ? 'fa-sun text-amber-400' : 'fa-moon text-slate-600'"></i>
+      </button>
+
+      @if (authService.currentUser()) {
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-200">
+            مرحباً، {{ authService.currentUser()?.displayName }}
+          </span>
+          <button (click)="authService.logout()" class="btn-secondary !py-1.5 !px-3 text-xs">
+            <i class="fa-solid fa-arrow-right-from-bracket ml-1"></i> خروج
+          </button>
+        </div>
+      } @else {
+        <a routerLink="/login" class="btn-primary !py-2 !px-4 text-sm">
+          <i class="fa-solid fa-user-lock ml-1"></i> دخول
+        </a>
+      }
+    </div>
+  </div>
+</header>

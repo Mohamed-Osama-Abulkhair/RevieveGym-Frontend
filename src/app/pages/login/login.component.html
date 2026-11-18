@@ -1,0 +1,57 @@
+<div class="flex-1 flex items-center justify-center p-4 py-12">
+  <div class="bg-white dark:bg-brandSurface-dark rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 rounded-2xl bg-gym-300 text-white flex items-center justify-center text-3xl font-black mx-auto mb-4 shadow-lg shadow-gym-300/30">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h2 class="text-2xl font-black text-slate-900 dark:text-white">تسجيل الدخول</h2>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">سجل الدخول لإدارة لوحة تحكم جيم ريفايف</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="space-y-5">
+      <div>
+        <label class="form-label" for="identifier">رقم الهاتف أو كود المشترك</label>
+        <div class="relative">
+          <input
+            id="identifier"
+            type="text"
+            [(ngModel)]="identifier"
+            name="identifier"
+            required
+            class="form-input"
+            placeholder="مثال: 01012345678 أو GYM-101"
+            autocomplete="username"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="form-label" for="password">كلمة المرور</label>
+        <div class="relative">
+          <input
+            id="password"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            class="form-input"
+            placeholder="••••••••"
+            autocomplete="current-password"
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="isLoading()"
+        class="btn-primary w-full !py-3 text-base shadow-md disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+      >
+        @if (isLoading()) {
+          <i class="fa-solid fa-circle-notch fa-spin ml-2"></i> جاري التحقق...
+        } @else {
+          <i class="fa-solid fa-arrow-left-to-bracket ml-2"></i> دخول
+        }
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+@if (confirmService.isOpen()) {
+  <div class="fixed inset-0 z-[9998] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+    <div class="bg-white dark:bg-brandSurface-dark rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 text-center animate-scale-up">
+      <div
+        class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center"
+        [ngClass]="confirmService.options().isDanger ? 'bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400' : 'bg-gym-100 text-gym-300 dark:bg-gym-900/50 dark:text-gym-300'"
+      >
+        <i
+          class="fa-solid text-2xl"
+          [ngClass]="confirmService.options().isDanger ? 'fa-triangle-exclamation' : 'fa-circle-question'"
+        ></i>
+      </div>
+
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+        {{ confirmService.options().title }}
+      </h3>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+        {{ confirmService.options().message }}
+      </p>
+
+      <div class="flex items-center justify-center gap-3">
+        <button
+          type="button"
+          (click)="confirmService.handleCancel()"
+          class="btn-secondary flex-1"
+        >
+          {{ confirmService.options().cancelText || 'إلغاء' }}
+        </button>
+        <button
+          type="button"
+          (click)="confirmService.handleConfirm()"
+          [ngClass]="confirmService.options().isDanger ? 'btn-danger flex-1' : 'btn-primary flex-1'"
+        >
+          {{ confirmService.options().confirmText || 'تأكيد' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

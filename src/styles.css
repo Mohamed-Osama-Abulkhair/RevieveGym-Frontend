@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    direction: rtl;
+    font-family: 'Cairo', 'Almarai', 'Segoe UI', Tahoma, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    @apply bg-brandCanvas-light text-[#23252a] dark:bg-brandCanvas-dark dark:text-[#f1f3f6] antialiased min-h-screen flex flex-col;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+/* =========================================================
+   💎 Global Form Controls & Inputs Design System
+   ========================================================= */
+@layer components {
+  /* Form Labels */
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.45rem;
+    line-height: 1.4;
+  }
+
+  .dark .form-label {
+    color: #e2e8f0;
+  }
+
+  /* Universal Form Input */
+  .form-input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    font-size: 0.925rem;
+    line-height: 1.5;
+    font-family: inherit;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+  }
+
+  .form-input:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #e05326;
+    box-shadow: 0 0 0 3px rgba(224, 83, 38, 0.15);
+  }
+
+  .dark .form-input,
+  .dark input[type="text"],
+  .dark input[type="email"],
+  .dark input[type="password"],
+  .dark input[type="tel"],
+  .dark input[type="number"],
+  .dark input[type="search"],
+  .dark input[type="date"],
+  .dark select,
+  .dark textarea {
+    background-color: #131926;
+    border-color: #2a3449;
+    color: #f8fafc;
+  }
+
+  .dark .form-input:focus,
+  .dark input:focus,
+  .dark select:focus,
+  .dark textarea:focus {
+    border-color: #e05326;
+    box-shadow: 0 0 0 3px rgba(224, 83, 38, 0.25);
+  }
+
+  /* Standard Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .btn-primary {
+    @apply btn bg-gym-300 text-white hover:bg-gym-400 active:scale-[0.98] shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply btn bg-slate-200 text-slate-800 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700 active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 active:scale-[0.98];
+  }
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
